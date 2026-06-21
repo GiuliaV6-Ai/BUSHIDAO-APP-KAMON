@@ -181,12 +181,18 @@ section { padding: 22px clamp(16px, 3vw, 34px) 34px; }
   transform: translateY(-1px);
 }
 
-.crest {
+.crest,
+.crest-canvas,
+.modal-canvas {
   width: 224px;
   height: 224px;
-  background-repeat: no-repeat;
-  background-size: 7168px auto;
+  display: block;
   margin: auto;
+}
+
+.crest-canvas,
+.modal-canvas {
+  object-fit: contain;
 }
 
 .card h3 {
@@ -229,7 +235,8 @@ dialog::backdrop { background: rgba(0,0,0,.58); }
   font-size: 22px;
 }
 
-.modal-crest {
+.modal-crest,
+.modal-canvas {
   transform: scale(1.18);
   transform-origin: center;
   margin: 30px auto 46px;
@@ -304,5 +311,6 @@ dialog::backdrop { background: rgba(0,0,0,.58); }
   section { padding: 14px; }
   .grid { grid-template-columns: 1fr; gap: 10px; }
   .card { padding: 10px; }
-  .modal-crest { transform: scale(1); margin: 16px auto 26px; }
+  .modal-crest,
+  .modal-canvas { transform: scale(1); margin: 16px auto 26px; }
 }
