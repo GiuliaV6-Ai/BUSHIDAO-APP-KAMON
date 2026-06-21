@@ -1,1 +1,390 @@
-:root{--paper:#f7f3ea;--ink:#171717;--muted:#666;--line:#d8cfbd;--panel:#fff;--accent:#8f1f2d}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Yu Gothic",Meiryo,system-ui,sans-serif}.header{display:flex;align-items:end;justify-content:space-between;padding:24px clamp(16px,4vw,44px);border-bottom:1px solid var(--line);background:#fff}.header p{margin:0 0 4px;color:var(--accent);font-size:12px;font-weight:700}.header h1{margin:0;font-size:36px}.header strong{font-size:28px}main{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 94px)}aside{padding:20px;border-right:1px solid var(--line);background:rgba(255,255,255,.7)}label{display:block;margin-bottom:16px;color:var(--muted);font-size:13px}input,select{display:block;width:100%;min-height:40px;margin-top:8px;padding:0 10px;border:1px solid var(--line);border-radius:6px;background:#fff;font:inherit;color:var(--ink)}section{padding:20px}.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;color:var(--muted)}.bar select{width:140px;margin:0}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(254px,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:8px;background:#fff;padding:14px;text-align:left;cursor:pointer}.card:hover{border-color:#a99d89;box-shadow:0 12px 30px rgba(40,32,20,.12)}.crest{width:224px;height:224px;background-repeat:no-repeat;background-size:8064px auto;margin:auto}.card h3{min-height:42px;margin:10px 0 4px;font-size:15px;line-height:1.45;overflow-wrap:anywhere}.card p{margin:0;color:var(--muted);font-size:12px}dialog{width:min(560px,calc(100vw - 28px));border:0;border-radius:8px;padding:30px;text-align:center;box-shadow:0 18px 42px rgba(0,0,0,.18)}dialog::backdrop{background:rgba(0,0,0,.36)}#closeDialog{position:absolute;right:10px;top:10px;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:#fff;font-size:22px}.modal-crest{transform:scale(1.18);transform-origin:center;margin:30px auto 46px}#detailName{overflow-wrap:anywhere}.download-button{min-height:42px;margin-top:18px;padding:0 18px;border:0;border-radius:6px;background:var(--accent);color:#fff;font:inherit;font-weight:700;cursor:pointer}.download-button:hover{filter:brightness(1.08)}@media(max-width:760px){main{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line)}section{padding:14px}.grid{grid-template-columns:1fr;gap:10px}.card{padding:10px}.modal-crest{transform:scale(1);margin:16px auto 26px}}
+:root {
+  --ink: #f8f3df;
+  --body: #080808;
+  --panel: #121315;
+  --panel-2: #f7f2e8;
+  --card: #fffdf8;
+  --card-ink: #171717;
+  --muted: #a7a097;
+  --line: rgba(224, 194, 126, 0.34);
+  --gold: #e3bd62;
+  --red: #a8262d;
+  --cyan: #18d8ff;
+  --magenta: #ff2fc1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 78% 16%, rgba(24, 216, 255, 0.16), transparent 28%),
+    radial-gradient(circle at 88% 42%, rgba(255, 47, 193, 0.12), transparent 26%),
+    linear-gradient(180deg, #050505 0%, #11100d 48%, #f5efe4 48%, #f5efe4 100%);
+  font-family: "Yu Gothic", Meiryo, system-ui, sans-serif;
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(260px, 520px) auto;
+  align-items: center;
+  gap: clamp(18px, 4vw, 56px);
+  min-height: 320px;
+  overflow: hidden;
+  padding: 34px clamp(18px, 5vw, 64px);
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(5, 5, 5, 0.86) 45%, rgba(0, 0, 0, 0.42) 100%),
+    url("brand/rainbow-zori.webp") right center / contain no-repeat,
+    #030303;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--cyan), var(--magenta), transparent);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 18px;
+  align-content: center;
+}
+
+.brand-logo {
+  width: min(390px, 72vw);
+  height: auto;
+  filter: drop-shadow(0 18px 34px rgba(227, 189, 98, 0.2));
+}
+
+.hero-copy p {
+  margin: 0 0 4px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(34px, 5vw, 58px);
+  letter-spacing: 0;
+}
+
+.hero-art {
+  min-height: 220px;
+}
+
+.kamon-mark {
+  position: absolute;
+  z-index: 1;
+  left: clamp(500px, 39vw, 760px);
+  top: 86px;
+  color: transparent;
+  background:
+    linear-gradient(180deg, #fff3b7 0%, #e5bc5d 42%, #8f5a18 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: Impact, "Arial Black", "Yu Gothic", sans-serif;
+  font-size: clamp(86px, 9vw, 172px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.82;
+  text-transform: uppercase;
+  transform: skewX(-11deg) rotate(-3deg);
+  filter:
+    drop-shadow(0 4px 0 rgba(0, 0, 0, 0.74))
+    drop-shadow(0 22px 36px rgba(227, 189, 98, 0.2));
+  opacity: 0.94;
+  pointer-events: none;
+}
+
+.kamon-mark::before,
+.kamon-mark::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 224, 133, 0.94), rgba(147, 82, 18, 0.1));
+  transform: skewX(-30deg);
+}
+
+.kamon-mark::before {
+  left: -44px;
+  right: 22px;
+  bottom: -4px;
+  box-shadow: 0 0 16px rgba(227, 189, 98, 0.22);
+}
+
+.kamon-mark::after {
+  left: 36px;
+  right: -54px;
+  top: 48%;
+  height: 6px;
+  opacity: 0.62;
+}
+
+.header strong {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-width: 108px;
+  min-height: 108px;
+  border: 1px solid rgba(227, 189, 98, 0.58);
+  border-radius: 50%;
+  color: var(--gold);
+  background: rgba(0, 0, 0, 0.54);
+  box-shadow: 0 0 28px rgba(24, 216, 255, 0.14);
+  font-size: 28px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: calc(100vh - 320px);
+  color: var(--card-ink);
+  background: var(--panel-2);
+}
+
+aside {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  min-height: calc(100vh - 320px);
+  padding: 22px;
+  border-right: 1px solid #d6c9ad;
+  background: #fffaf0;
+}
+
+label {
+  display: block;
+  margin-bottom: 16px;
+  color: #706858;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  min-height: 42px;
+  margin-top: 8px;
+  padding: 0 12px;
+  border: 1px solid #d1c2a3;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--card-ink);
+  font: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid rgba(168, 38, 45, 0.22);
+  border-color: var(--red);
+}
+
+section {
+  padding: 22px clamp(16px, 3vw, 34px) 34px;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: #756d60;
+}
+
+.bar select {
+  width: 140px;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(254px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  border: 1px solid #d5c7a8;
+  border-radius: 8px;
+  background: var(--card);
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.card:hover {
+  border-color: #b69a5b;
+  box-shadow: 0 14px 32px rgba(59, 44, 18, 0.16);
+  transform: translateY(-1px);
+}
+
+.crest {
+  width: 224px;
+  height: 224px;
+  background-repeat: no-repeat;
+  background-size: 8064px auto;
+  margin: auto;
+}
+
+.card h3 {
+  min-height: 42px;
+  margin: 10px 0 4px;
+  color: var(--card-ink);
+  font-size: 15px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.card p {
+  margin: 0;
+  color: #716a60;
+  font-size: 12px;
+}
+
+dialog {
+  width: min(560px, calc(100vw - 28px));
+  border: 0;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  color: var(--card-ink);
+  background: #fffdf8;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.58);
+}
+
+#closeDialog {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #d3c5a8;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 22px;
+}
+
+.modal-crest {
+  transform: scale(1.18);
+  transform-origin: center;
+  margin: 30px auto 46px;
+}
+
+#detailName {
+  overflow-wrap: anywhere;
+}
+
+.download-button {
+  min-height: 42px;
+  margin-top: 18px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--red), #5d1733);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  filter: brightness(1.08);
+}
+
+@media (max-width: 900px) {
+  .header {
+    grid-template-columns: 1fr auto;
+    min-height: 300px;
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.72)),
+      url("brand/rainbow-zori.webp") right bottom / 58% auto no-repeat,
+      #030303;
+  }
+
+  .hero-art {
+    display: none;
+  }
+
+  .kamon-mark {
+    position: relative;
+    left: auto;
+    top: auto;
+    grid-column: 1 / -1;
+    width: fit-content;
+    margin: -8px 0 0 8px;
+    font-size: clamp(68px, 15vw, 120px);
+  }
+}
+
+@media (max-width: 760px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 24px 16px;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.74)),
+      url("brand/rainbow-zori.webp") right bottom / 76% auto no-repeat,
+      #030303;
+  }
+
+  .header strong {
+    min-width: 82px;
+    min-height: 82px;
+    font-size: 22px;
+  }
+
+  .kamon-mark {
+    margin: 0;
+    font-size: clamp(54px, 17vw, 92px);
+  }
+
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  aside {
+    position: static;
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #d6c9ad;
+  }
+
+  section {
+    padding: 14px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .modal-crest {
+    transform: scale(1);
+    margin: 16px auto 26px;
+  }
+}
