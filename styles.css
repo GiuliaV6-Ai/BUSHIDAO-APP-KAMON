@@ -25,16 +25,17 @@ body {
 .header {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(320px, 700px) auto;
+  grid-template-columns: minmax(310px, 0.82fr) minmax(420px, 1fr) minmax(300px, 0.78fr);
   align-items: center;
-  gap: clamp(18px, 4vw, 56px);
-  min-height: 320px;
+  gap: clamp(18px, 3vw, 42px);
+  min-height: 360px;
   overflow: hidden;
-  padding: 34px clamp(18px, 5vw, 64px);
+  padding: 34px clamp(18px, 4vw, 56px);
   border-bottom: 1px solid var(--line);
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(5, 5, 5, 0.86) 45%, rgba(0, 0, 0, 0.42) 100%),
-    url("brand/rainbow-zori.webp") right center / contain no-repeat,
+    radial-gradient(circle at 73% 42%, rgba(24, 216, 255, 0.09), transparent 22%),
+    radial-gradient(circle at 86% 38%, rgba(255, 47, 193, 0.09), transparent 24%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.98) 0%, rgba(5, 5, 5, 0.94) 50%, rgba(0, 0, 0, 0.86) 100%),
     #030303;
 }
 
@@ -50,12 +51,13 @@ body {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 18px;
+  gap: 16px;
   align-content: center;
+  align-self: center;
 }
 
 .brand-logo {
-  width: min(390px, 72vw);
+  width: min(320px, 56vw);
   height: auto;
   filter: drop-shadow(0 18px 34px rgba(227, 189, 98, 0.2));
 }
@@ -76,36 +78,48 @@ body {
 .kamon-mark {
   position: relative;
   z-index: 1;
-  width: min(690px, 36vw);
+  width: min(600px, 34vw);
   height: auto;
   justify-self: center;
-  align-self: start;
-  margin-top: 18px;
+  align-self: center;
+  margin-top: -16px;
   filter: drop-shadow(0 18px 34px rgba(227, 189, 98, 0.22)) drop-shadow(0 4px 0 rgba(0,0,0,.7));
   mix-blend-mode: screen;
 }
 
-.hero-art { min-height: 220px; }
-
-.header strong {
+.hero-art {
   position: relative;
   z-index: 1;
+  justify-self: end;
+  align-self: end;
+  width: min(340px, 24vw);
+  min-height: 330px;
+  margin-right: clamp(8px, 2vw, 28px);
+  background: url("brand/rainbow-zori.webp") center bottom / contain no-repeat;
+  filter: drop-shadow(0 0 36px rgba(24, 216, 255, 0.12));
+}
+
+.header strong {
+  position: absolute;
+  z-index: 2;
+  left: clamp(28px, 4vw, 64px);
+  bottom: 26px;
   display: grid;
   place-items: center;
-  min-width: 108px;
-  min-height: 108px;
-  border: 1px solid rgba(227, 189, 98, 0.58);
-  border-radius: 50%;
+  min-width: 132px;
+  min-height: 42px;
+  border: 1px solid rgba(227, 189, 98, 0.5);
+  border-radius: 999px;
   color: var(--gold);
-  background: rgba(0, 0, 0, 0.54);
-  box-shadow: 0 0 28px rgba(24, 216, 255, 0.14);
-  font-size: 28px;
+  background: rgba(0, 0, 0, 0.42);
+  box-shadow: 0 0 24px rgba(24, 216, 255, 0.08);
+  font-size: 22px;
 }
 
 main {
   display: grid;
   grid-template-columns: 280px 1fr;
-  min-height: calc(100vh - 320px);
+  min-height: calc(100vh - 360px);
   color: var(--card-ink);
   background: var(--panel-2);
 }
@@ -114,7 +128,7 @@ aside {
   position: sticky;
   top: 0;
   align-self: start;
-  min-height: calc(100vh - 320px);
+  min-height: calc(100vh - 360px);
   padding: 22px;
   border-right: 1px solid #d6c9ad;
   background: #fffaf0;
@@ -261,22 +275,28 @@ dialog::backdrop { background: rgba(0,0,0,.58); }
 
 @media (max-width: 900px) {
   .header {
-    grid-template-columns: 1fr auto;
-    min-height: 300px;
+    grid-template-columns: 1fr;
+    min-height: 420px;
     background:
-      linear-gradient(90deg, rgba(0,0,0,.96), rgba(0,0,0,.72)),
-      url("brand/rainbow-zori.webp") right bottom / 58% auto no-repeat,
+      linear-gradient(90deg, rgba(0,0,0,.96), rgba(0,0,0,.78)),
       #030303;
   }
 
   .kamon-mark {
-    grid-column: 1 / -1;
     justify-self: start;
-    width: min(520px, 82vw);
-    margin: -10px 0 0;
+    width: min(560px, 78vw);
+    margin: -8px 0 0;
   }
 
-  .hero-art { display: none; }
+  .hero-art {
+    display: block;
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    width: min(280px, 36vw);
+    min-height: 270px;
+    opacity: 0.86;
+  }
 }
 
 @media (max-width: 760px) {
@@ -286,19 +306,27 @@ dialog::backdrop { background: rgba(0,0,0,.58); }
     padding: 24px 16px;
     background:
       linear-gradient(180deg, rgba(0,0,0,.86), rgba(0,0,0,.74)),
-      url("brand/rainbow-zori.webp") right bottom / 76% auto no-repeat,
       #030303;
   }
 
   .header strong {
-    min-width: 82px;
-    min-height: 82px;
-    font-size: 22px;
+    left: 16px;
+    bottom: 18px;
+    min-width: 104px;
+    min-height: 38px;
+    font-size: 18px;
   }
 
   .kamon-mark {
     width: min(430px, 90vw);
     margin: -4px 0 0;
+  }
+
+  .hero-art {
+    right: -10px;
+    width: min(240px, 58vw);
+    min-height: 230px;
+    opacity: 0.72;
   }
 
   main { grid-template-columns: 1fr; }
