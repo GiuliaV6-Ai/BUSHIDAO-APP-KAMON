@@ -25,12 +25,12 @@ body {
 .header {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(310px, 0.82fr) minmax(420px, 1fr) minmax(300px, 0.78fr);
+  grid-template-columns: 340px minmax(420px, 1fr) 330px;
   align-items: center;
-  gap: clamp(18px, 3vw, 42px);
-  min-height: 360px;
+  gap: 34px;
+  min-height: 340px;
   overflow: hidden;
-  padding: 34px clamp(18px, 4vw, 56px);
+  padding: 30px 52px 38px;
   border-bottom: 1px solid var(--line);
   background:
     radial-gradient(circle at 73% 42%, rgba(24, 216, 255, 0.09), transparent 22%),
@@ -51,13 +51,15 @@ body {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 16px;
+  gap: 14px;
   align-content: center;
   align-self: center;
+  justify-self: start;
+  min-width: 0;
 }
 
 .brand-logo {
-  width: min(320px, 56vw);
+  width: 300px;
   height: auto;
   filter: drop-shadow(0 18px 34px rgba(227, 189, 98, 0.2));
 }
@@ -72,17 +74,17 @@ body {
 .hero-copy h1 {
   margin: 0;
   color: #fff;
-  font-size: clamp(34px, 5vw, 58px);
+  font-size: 48px;
 }
 
 .kamon-mark {
   position: relative;
   z-index: 1;
-  width: min(600px, 34vw);
+  width: min(560px, 100%);
   height: auto;
   justify-self: center;
   align-self: center;
-  margin-top: -16px;
+  margin: -18px 0 0;
   filter: drop-shadow(0 18px 34px rgba(227, 189, 98, 0.22)) drop-shadow(0 4px 0 rgba(0,0,0,.7));
   mix-blend-mode: screen;
 }
@@ -92,9 +94,9 @@ body {
   z-index: 1;
   justify-self: end;
   align-self: end;
-  width: min(340px, 24vw);
-  min-height: 330px;
-  margin-right: clamp(8px, 2vw, 28px);
+  width: 300px;
+  min-height: 310px;
+  margin-right: 0;
   background: url("brand/rainbow-zori.webp") center bottom / contain no-repeat;
   filter: drop-shadow(0 0 36px rgba(24, 216, 255, 0.12));
 }
@@ -102,8 +104,8 @@ body {
 .header strong {
   position: absolute;
   z-index: 2;
-  left: clamp(28px, 4vw, 64px);
-  bottom: 26px;
+  left: 52px;
+  bottom: 24px;
   display: grid;
   place-items: center;
   min-width: 132px;
@@ -119,7 +121,7 @@ body {
 main {
   display: grid;
   grid-template-columns: 280px 1fr;
-  min-height: calc(100vh - 360px);
+  min-height: calc(100vh - 340px);
   color: var(--card-ink);
   background: var(--panel-2);
 }
@@ -128,7 +130,7 @@ aside {
   position: sticky;
   top: 0;
   align-self: start;
-  min-height: calc(100vh - 360px);
+  min-height: calc(100vh - 340px);
   padding: 22px;
   border-right: 1px solid #d6c9ad;
   background: #fffaf0;
@@ -275,26 +277,31 @@ dialog::backdrop { background: rgba(0,0,0,.58); }
 
 @media (max-width: 900px) {
   .header {
-    grid-template-columns: 1fr;
-    min-height: 420px;
+    grid-template-columns: 1fr 260px;
+    min-height: 380px;
+    padding: 26px 28px 34px;
     background:
       linear-gradient(90deg, rgba(0,0,0,.96), rgba(0,0,0,.78)),
       #030303;
   }
 
   .kamon-mark {
+    grid-column: 1;
     justify-self: start;
-    width: min(560px, 78vw);
+    width: min(500px, 58vw);
     margin: -8px 0 0;
   }
 
   .hero-art {
     display: block;
-    position: absolute;
-    right: 10px;
-    bottom: 0;
-    width: min(280px, 36vw);
-    min-height: 270px;
+    position: relative;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    right: auto;
+    bottom: auto;
+    width: 240px;
+    min-height: 280px;
+    align-self: end;
     opacity: 0.86;
   }
 }
@@ -302,8 +309,9 @@ dialog::backdrop { background: rgba(0,0,0,.58); }
 @media (max-width: 760px) {
   .header {
     grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 24px 16px;
+    gap: 12px;
+    min-height: 520px;
+    padding: 22px 16px 72px;
     background:
       linear-gradient(180deg, rgba(0,0,0,.86), rgba(0,0,0,.74)),
       #030303;
@@ -318,15 +326,17 @@ dialog::backdrop { background: rgba(0,0,0,.58); }
   }
 
   .kamon-mark {
-    width: min(430px, 90vw);
-    margin: -4px 0 0;
+    width: min(430px, 92vw);
+    margin: -4px auto 0 0;
   }
 
   .hero-art {
-    right: -10px;
-    width: min(240px, 58vw);
+    position: absolute;
+    right: -12px;
+    bottom: 0;
+    width: min(230px, 56vw);
     min-height: 230px;
-    opacity: 0.72;
+    opacity: 0.68;
   }
 
   main { grid-template-columns: 1fr; }
