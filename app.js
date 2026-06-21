@@ -152,6 +152,8 @@ function downloadCurrent() {
     canvas.width = data.cell;
     canvas.height = data.cell;
     const context = canvas.getContext("2d");
+    context.fillStyle = "#fffdf8";
+    context.fillRect(0, 0, data.cell, data.cell);
     context.drawImage(image, item.x, item.y, data.cell, data.cell, 0, 0, data.cell, data.cell);
     canvas.toBlob((blob) => {
       const anchor = document.createElement("a");
